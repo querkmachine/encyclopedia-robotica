@@ -1,0 +1,7 @@
+@mixin focus-text {
+  color: var(--color-focus-text);
+  background-color: var(--color-focus-background);
+  text-decoration: none;
+  box-shadow: 0 3px 0 0 var(--color-focus-text);
+  box-decoration-break: clone;
+}

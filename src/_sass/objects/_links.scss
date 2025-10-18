@@ -1,0 +1,9 @@
+@use "../helpers/links";
+
+.er-link {
+  @include links.default;
+}
+
+.er-ui-link {
+  @include links.default($underline: false, $visited: false);
+}

@@ -1,0 +1,6 @@
+node_modules/
+_site/
+
+# System cache files
+Thumbs.db
+.DS_Store

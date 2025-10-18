@@ -1,0 +1,48 @@
+@mixin _common {
+  color: var(--color-link);
+
+  &:hover,
+  &:active {
+    color: var(--color-link-hover);
+  }
+
+  @media print {
+    color: var(--color-text);
+
+    &::after {
+      content: " (" attr(href) ")";
+      font-size: smaller;
+    }
+  }
+}
+
+@mixin _underline {
+  & {
+    text-decoration: underline;
+    text-decoration-skip-ink: skip;
+  }
+}
+
+@mixin _visited {
+  &:visited {
+    color: var(--color-link-visited);
+  }
+}
+
+@mixin default($underline: true, $visited: true) {
+  @include _common;
+
+  @if $underline {
+    @include _underline;
+  } @else {
+    text-decoration: none;
+
+    &:hover {
+      @include _underline;
+    }
+  }
+
+  @if $visited {
+    @include _visited;
+  }
+}

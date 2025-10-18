@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="er-template">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ '/assets/stylesheet.css' }}">
+  <link rel="icon" href="{{ '/assets/images/logo.svg' | url }}">
+  <title>{% block title %}{{ site.name }}{% endblock %}</title>
+</head>
+<body class="er-template__body">
+  <div class="er-template__container">
+
+    <header class="er-header er-template__header">
+      <a class="er-header__logo" href="{{ '/' | url }}">
+        {% include '../_assets/images/logo.svg' %}
+        {{ site.name }}
+      </a>
+    </header>
+    
+    <div class="er-template__sidebar">
+      {% block sidebar %}{% endblock %}
+    </div>
+    
+    <main class="er-template__main">
+      {% block main %}{% endblock %}
+    </main>
+    
+    <footer class="er-template__footer">
+      {% block footer %}{% endblock %}
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/**
+ * GLOBAL VARIABLES
+ */
+
+:root {
+  /** "Brand" colours */
+  --brand-red: #ff2020;
+  --brand-green: #20df20;
+  --brand-blue: #207fdf;
+
+  /** Semantic colours */
+  --color-background: light-dark(#f6f6f6, #101010);
+  --color-background-surface: light-dark(#fff, #545454);
+  --color-text: light-dark(#141414, #fff);
+  --color-link: light-dark(
+    color-mix(in lch, var(--brand-blue), #000 10%),
+    color-mix(in lch, var(--brand-blue), #fff 35%)
+  );
+  --color-link-hover: light-dark(
+    color-mix(in lch, var(--brand-blue), #000 25%),
+    var(--brand-blue)
+  );
+  --color-link-visited: light-dark(
+    color-mix(in lch, var(--brand-red), #000 10%),
+    color-mix(in lch, var(--brand-red), #fff 35%)
+  );
+  --color-border: light-dark(#bbb, #444);
+  --color-focus-text: #000;
+  --color-focus-background: #fc0;
+
+  /** Spacing */
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5369rem + 0.1136vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8494rem + 0.1136vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6108rem + 0.3409vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.1477rem + 0.4545vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2216rem + 0.6818vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.2955rem + 0.9091vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4432rem + 1.3636vw, 7.5rem);
+
+  /** Grid */
+  --grid-max-width: 77.5rem;
+  --grid-gutter: clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem);
+  --grid-gutter-half: calc(var(--grid-gutter) / 2);
+
+  /** Font stacks */
+  --font-body: system-ui, Helvetica, Roboto, Arial, sans-serif;
+  --font-heading: "Zen Dot", Microgramma, sans-serif;
+
+  /** Font sizes */
+  --size--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
+  --size--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+  --size-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+  --size-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+  --size-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+  --size-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+  --size-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
+
+  /** Design motifs */
+  --rgb-strip: linear-gradient(
+    to right,
+    var(--brand-red),
+    var(--brand-red) 33.333%,
+    var(--brand-green) 33.333%,
+    var(--brand-green) 66.666%,
+    var(--brand-blue) 66.666%,
+    var(--brand-blue)
+  );
+}

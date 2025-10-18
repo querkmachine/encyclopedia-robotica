@@ -1,0 +1,12 @@
+---
+pagination:
+  data: collections.categories
+  size: 1
+  alias: cat
+  filter: [all]
+eleventyComputed:
+  title: Pages categorised as “{{ cat }}”
+permalink: "/category/{{ cat | slugify }}/"
+---
+
+{{ collections[cat] | dump }}

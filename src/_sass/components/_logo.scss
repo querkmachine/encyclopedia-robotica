@@ -1,0 +1,22 @@
+.er-header {
+  padding-block: var(--space-2xs);
+  padding-inline-end: var(--space-2xs);
+}
+
+.er-header__logo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--size-0);
+  line-height: 1.1;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.er-header__logo svg {
+  inline-size: 4rem;
+  block-size: 4rem;
+}

@@ -1,0 +1,50 @@
+{% extends "./_base.njk" %}
+
+{% block title %}
+{{ title }} - {{ site.name }}
+{% endblock %}
+
+{% block main %}
+  <h1 class="er-heading-xl">
+    {%- if formattedTitle %}
+      {% if formattedTitle.pre %}<span class="er-subheading-xl">{{ formattedTitle.pre }}</span>{% endif %}
+      {{ formattedTitle.title }}
+      {% if formattedTitle.sub %}<span class="er-subheading-xl">{{ formattedTitle.sub }}</span>{% endif %}
+    {%- else %}
+      {{- title -}}
+    {%- endif %}
+  </h1>
+  {{ content | safe }}
+  
+  {%- if categories %}
+    <p>Categorised as:</p>
+    <ul>
+      {%- for t in categories %}
+      <li>{{ t }}</li>
+      {%- endfor %}
+    </ul>
+  {%- endif %}
+{% endblock %}
+
+{% block sidebar %}
+  <nav aria-label="Main navigation">
+    {%- for sectionName, links in site.navigation %}
+      {%- if sectionName %}
+        <h2 class="er-heading-xs">{{ sectionName }}</h2>
+      {%- endif %}
+      <ul>
+        {%- for url, title in links %}  
+        <li><a class="er-ui-link" href="{{ url }}">{{ title }}</a></li>
+        {%- endfor %}
+      </ul>
+    {%- endfor %}
+  </nav>
+{% endblock %}
+
+{% block footer %}
+  <ul>
+    <li><a class="er-ui-link" href="{{ gitEditUrl(page.inputPath) }}">Edit this page</a></li>
+    <li><a class="er-ui-link" href="{{ gitHistoryUrl(page.inputPath) }}">View history</a></li>
+    <li>Last edited: {{ gitEditDate(page.date) }}</li>
+  </ul>
+{% endblock %}
