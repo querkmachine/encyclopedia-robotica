@@ -3,7 +3,8 @@ import paths from "./eleventy/paths.js";
 import { compileStylesheets } from "./eleventy/build/sass.js";
 import { markdownConfig } from "./eleventy/build/markdown.js";
 
-import { getAllCategories } from "./eleventy/functions/categories.js";
+import { formatPageUrl } from "./eleventy/functions/pages.js";
+import { getAllTags, formatTagUrl } from "./eleventy/functions/tags.js";
 import {
   gitEditUrl,
   gitHistoryUrl,
@@ -19,7 +20,7 @@ export default function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownConfig);
 
   // Gather categories from all pages and build a collection from them
-  eleventyConfig.addCollection("categories", getAllCategories);
+  eleventyConfig.addCollection("allTags", getAllTags);
 
   // Copy assets
   eleventyConfig.addPassthroughCopy({
@@ -33,6 +34,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addNunjucksGlobal("gitEditUrl", gitEditUrl);
   eleventyConfig.addNunjucksGlobal("gitHistoryUrl", gitHistoryUrl);
   eleventyConfig.addNunjucksGlobal("gitEditDate", gitEditDate);
+
+  eleventyConfig.addFilter("tagUrl", formatTagUrl);
+  eleventyConfig.addFilter("pageUrl", formatPageUrl);
 
   return {
     markdownTemplateEngine: "njk",

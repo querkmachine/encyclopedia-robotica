@@ -1,12 +1,20 @@
 ---
 pagination:
-  data: collections.categories
+  data: collections.allTags
   size: 1
-  alias: cat
+  alias: tag
   filter: [all]
 eleventyComputed:
-  title: Pages categorised as “{{ cat }}”
-permalink: "/category/{{ cat | slugify }}/"
+  title: Pages categorised as “{{ tag }}”
+permalink: "{{ tag | tagUrl }}"
 ---
 
-{{ collections[cat] | dump }}
+{%- set totalResults = collections[tag] | length %}
+
+<p class="er-body-s">{{ totalResults }} {{ 'page' if totalResults == 1 else 'pages' }}.</p>
+
+<ul class="er-list">
+  {%- for page in collections[tag] %}
+    <li><a class="er-link" href="{{ page.url | url }}">{{ page.data.title }}</a></li>
+  {%- endfor %}
+</ul>
