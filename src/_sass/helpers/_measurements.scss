@@ -1,0 +1,9 @@
+@use "sass:math";
+
+@function pxToRem($px, $root-font-size: 16px) {
+  @if math.is-unitless($px) {
+    $px: $px * 1px;
+  }
+
+  @return $px / $root-font-size * 1rem;
+}

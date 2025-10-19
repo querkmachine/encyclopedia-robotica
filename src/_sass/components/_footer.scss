@@ -1,0 +1,11 @@
+.er-footer {
+  margin: 0;
+  padding: 0;
+  font-size: var(--size--1);
+  list-style: none;
+}
+
+.er-footer__item {
+  display: inline-block;
+  margin-inline-end: var(--space-xs);
+}

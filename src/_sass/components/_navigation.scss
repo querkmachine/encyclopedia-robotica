@@ -1,0 +1,36 @@
+@use "../helpers/media-queries";
+
+.er-navigation {
+  --inline-gutter: var(--grid-gutter-half);
+}
+
+.er-navigation__toggle {
+  display: block;
+  inline-size: calc(100% + var(--inline-gutter) * 2);
+  margin-inline: calc(0px - var(--inline-gutter));
+  padding-block: var(--space-2xs);
+  padding-inline: var(--inline-gutter);
+  border-block: 1px solid var(--color-border);
+  border-inline: none;
+  font-family: var(--font-heading);
+  font-size: var(--size-0);
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: start;
+  background-color: var(--color-background-surface);
+  cursor: pointer;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.er-navigation__menu {
+  @media #{media-queries.until("tablet")} {
+    margin-block-start: -1px;
+    margin-inline: calc(0px - var(--inline-gutter));
+    padding-inline: var(--inline-gutter);
+    border-block-end: 1px solid var(--color-border);
+    background-color: var(--color-background-surface);
+  }
+}

@@ -30,5 +30,9 @@
       {% block footer %}{% endblock %}
     </footer>
   </div>
+  
+  {% block scripts %}
+  <script type="module" src="{{ '/assets/javascript/entry.js' }}"></script>
+  {% endblock %}
 </body>
 </html>

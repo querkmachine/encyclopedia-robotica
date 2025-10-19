@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-  <h1 class="er-heading-xl">
+  <h1 class="er-heading-xl er-template__heading">
     {%- if formattedTitle %}
       {% if formattedTitle.pre %}<span class="er-subheading-xl">{{ formattedTitle.pre }}</span>{% endif %}
       {{ formattedTitle.title }}
@@ -14,6 +14,7 @@
       {{- title -}}
     {%- endif %}
   </h1>
+  
   {{ content | safe }}
   
   {%- if categories %}
@@ -27,24 +28,33 @@
 {% endblock %}
 
 {% block sidebar %}
-  <nav aria-label="Main navigation">
-    {%- for sectionName, links in site.navigation %}
-      {%- if sectionName %}
-        <h2 class="er-heading-xs">{{ sectionName }}</h2>
-      {%- endif %}
-      <ul>
-        {%- for url, title in links %}  
-        <li><a class="er-ui-link" href="{{ url }}">{{ title }}</a></li>
-        {%- endfor %}
-      </ul>
-    {%- endfor %}
+  <nav class="er-navigation" aria-label="Main navigation">
+    <button class="er-navigation__toggle" type="button" id="menu-toggle" hidden>Menu</button>
+    <div class="er-navigation__menu" id="menu">
+      {%- for sectionName, links in site.navigation %}
+        {%- if sectionName %}
+          <h2 class="er-heading-xs">{{ sectionName }}</h2>
+        {%- endif %}
+        <ul class="er-list">
+          {%- for url, title in links %}  
+          <li><a class="er-ui-link" href="{{ url }}">{{ title }}</a></li>
+          {%- endfor %}
+        </ul>
+      {%- endfor %}
+    </div>
   </nav>
 {% endblock %}
 
 {% block footer %}
-  <ul>
-    <li><a class="er-ui-link" href="{{ gitEditUrl(page.inputPath) }}">Edit this page</a></li>
-    <li><a class="er-ui-link" href="{{ gitHistoryUrl(page.inputPath) }}">View history</a></li>
-    <li>Last edited: {{ gitEditDate(page.date) }}</li>
+  <ul class="er-footer">
+    <li class="er-footer__item">
+      <a class="er-ui-link" href="{{ gitEditUrl(page.inputPath) }}">Edit this page</a>
+    </li>
+    <li class="er-footer__item">
+      <a class="er-ui-link" href="{{ gitHistoryUrl(page.inputPath) }}">View history</a>
+    </li>
+    <li class="er-footer__item">
+      Last edited: {{ gitEditDate(page.date) }}
+    </li>
   </ul>
 {% endblock %}

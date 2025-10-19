@@ -1,0 +1,31 @@
+$-directions: (
+  all: all,
+  block: block,
+  block-start: block-start,
+  block-end: block-end,
+  inline: inline,
+  inline-start: inline-start,
+  inline-end: inline-end,
+);
+
+$-units: ("3xs", "2xs", "xs", "s", "m", "l", "xl", "2xl", "3xl");
+
+@each $i in $-units {
+  @each $key, $dir in $-directions {
+    .er-\!-margin#{if($key != "all", "-" + $key, null)}-#{$i} {
+      margin#{if($key != "all", "-" + $key, null)}: if(
+        $i == 0,
+        0,
+        var(--space-#{$i})
+      ) !important;
+    }
+
+    .er-\!-padding#{if($key != "all", "-" + $key, null)}-#{$i} {
+      padding#{if($key != "all", "-" + $key, null)}: if(
+        $i == 0,
+        0,
+        var(--space-#{$i})
+      ) !important;
+    }
+  }
+}

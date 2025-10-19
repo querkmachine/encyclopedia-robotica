@@ -1,3 +1,5 @@
+@use "../settings/breakpoints";
+
 /**
  * GLOBAL VARIABLES
  */
@@ -43,6 +45,11 @@
   --grid-max-width: 77.5rem;
   --grid-gutter: clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem);
   --grid-gutter-half: calc(var(--grid-gutter) / 2);
+
+  /** Breakpoints */
+  @each $key, $value in breakpoints.$breakpoints {
+    --breakpoint-#{$key}: #{$value};
+  }
 
   /** Font stacks */
   --font-body: system-ui, Helvetica, Roboto, Arial, sans-serif;

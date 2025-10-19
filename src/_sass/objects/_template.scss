@@ -1,3 +1,5 @@
+@use "../helpers/media-queries";
+
 .er-template {
   color-scheme: dark light;
   background-color: var(--color-background);
@@ -18,16 +20,18 @@
 }
 
 .er-template__container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "header" "sidebar" "main" "footer";
-  grid-template-rows: auto auto 1fr auto;
   inline-size: 100%;
   max-inline-size: var(--grid-max-width);
   min-block-size: 100vh;
   margin-inline: auto;
   padding-left: var(--grid-gutter-half);
   padding-right: var(--grid-gutter-half);
+}
+
+.er-template__header,
+.er-template__sidebar,
+.er-template__main {
+  margin-block-end: var(--space-m);
 }
 
 .er-template__header {
@@ -44,16 +48,22 @@
 
 .er-template__footer {
   grid-area: footer;
-  padding-block-start: var(--grid-gutter-half);
-  padding-block-start: var(--grid-gutter-half);
+  padding-block-start: var(--space-2xs);
+  padding-block-end: var(--space-2xs);
   border-block-start: 1px solid var(--color-border);
 }
 
-@media (min-width: 40rem) {
+@media #{media-queries.from("tablet")} {
   .er-template__container {
+    display: grid;
     grid-template-columns: minmax(12rem, 15rem) 3fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header main" "sidebar main" ". footer";
+  }
+
+  .er-template__main {
+    padding-block-start: var(--space-l);
+    margin-block-end: 0;
   }
 
   .er-template__main,

@@ -1,0 +1,49 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
+@use "../settings/breakpoints";
+@use "measurements";
+
+@function _get-breakpoint-value($breakpoint, $map: breakpoints.$breakpoints) {
+  @if meta.type-of($breakpoint) == "number" {
+    // If the number is unitless, coerce it into a pixel value
+    @if math.is-unitless($breakpoint) {
+      $value: $breakpoint * 1px;
+    }
+
+    @return $breakpoint;
+  }
+
+  @if meta.type-of($breakpoint) == "string" and map.has-key($map, $breakpoint) {
+    @return map.get($map, $breakpoint);
+  }
+
+  @error "Couldn't find `#{$breakpoint}` in $map.";
+}
+
+@function from($breakpoint, $map: breakpoints.$breakpoints) {
+  $value: _get-breakpoint-value($breakpoint, $map);
+
+  @if meta.type-of($value) == "number" and math.unit($value) == "px" {
+    $value: measurements.pxToRem($breakpoint);
+  }
+
+  @return "(min-width: #{$value})";
+}
+
+@function until($breakpoint, $map: breakpoints.$breakpoints) {
+  $value: _get-breakpoint-value($breakpoint, $map);
+
+  @if meta.type-of($value) == "number" and math.unit($value) == "px" {
+    // If it's a pixel value, convert it to rems.
+    $value: measurements.pxToRem($value);
+  }
+
+  // If $value derives from a named breakpoint, additionally subtract .002rem
+  @if meta.type-of($breakpoint) != "number" and math.unit($value) == "rem" {
+    $value: $value - 0.002rem;
+  }
+
+  @return "(max-width: #{$value})";
+}
