@@ -3,7 +3,6 @@ pagination:
   data: collections.allTags
   size: 1
   alias: tag
-  filter: [all]
 eleventyComputed:
   title: Pages categorised as “{{ tag }}”
 permalink: "{{ tag | tagUrl }}"

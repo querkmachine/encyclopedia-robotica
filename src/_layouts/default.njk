@@ -17,11 +17,12 @@
   
   {{ content | safe }}
   
-  {%- if categories %}
-    <p>Categorised as:</p>
-    <ul>
-      {%- for t in categories %}
-      <li>{{ t }}</li>
+  {%- if tags %}
+    <hr class="er-rule">
+    <h2 class="er-heading-xs">Categorised as</h2>
+    <ul class="er-list">
+      {%- for t in tags %}
+      <li><a class="er-link" href="{{ t | tagUrl }}">{{ t }}</a></li>
       {%- endfor %}
     </ul>
   {%- endif %}
