@@ -1,5 +1,6 @@
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
+import markdownItFootnote from "markdown-it-footnote";
 
 /**
  * Process a string as Markdown, treating it as a block of content (i.e. it will
@@ -64,6 +65,39 @@ const addClassesToRule = function (md, rule, classes) {
     }
 
     return defaultRenderer(tokens, idx, options, env, self);
+  };
+};
+
+/**
+ * Customise output of markdown-it-footnote. Abstracted out for tidiness.
+ *
+ * @param {import('markdown-it')} md - markdown-it instance.
+ */
+const customiseFootnoteHtml = (md) => {
+  md.renderer.rules.footnote_ref = (tokens, idx, options, env, slf) => {
+    const id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+    const caption = slf.rules.footnote_caption(tokens, idx, options, env, slf);
+    let refid = id;
+    if (tokens[idx].meta.subId > 0) refid += `:${tokens[idx].meta.subId}`;
+    return `<sup class="er-ref"><a class="er-ui-link" href="#fn${id}" id="fnref${refid}">${caption}</a></sup>`;
+  };
+
+  md.renderer.rules.footnote_block_open = () =>
+    `<hr class="er-rule">
+    <h2 id="references" class="er-heading-xs">References</h2>
+    <ol class="er-list er-list--numbered er-references">`;
+
+  md.renderer.rules.footnote_open = (tokens, idx, options, env, slf) => {
+    let id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+    if (tokens[idx].meta.subId > 0) id += `:${tokens[idx].meta.subId}`;
+    return `<li id="fn${id}">`;
+  };
+
+  md.renderer.rules.footnote_anchor = (tokens, idx, options, env, slf) => {
+    let id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+    if (tokens[idx].meta.subId > 0) id += `:${tokens[idx].meta.subId}`;
+    /* ↩ with escape code to prevent display as Apple Emoji on iOS */
+    return ` <a class="er-ui-link" href="#fnref${id}">\u21a9\uFE0E</a>`;
   };
 };
 
@@ -136,6 +170,9 @@ const markdownItClasses = function (md) {
   addClassesToRule(md, "th_open", "er-table__header");
   addClassesToRule(md, "td_open", "er-table__cell");
 
+  // Customise markdown-it-footnote output
+  customiseFootnoteHtml(md);
+
   // Custom text replacements
   const defaultTextRenderer = getDefaultRenderer(md, "text");
   md.renderer.rules.text = (tokens, idx, options, env, self) => {
@@ -163,6 +200,7 @@ const markdownConfig = markdownIt({
   typographer: true,
   breaks: true,
 })
+  .use(markdownItFootnote)
   .use(markdownItAnchor, {
     tabIndex: false,
   })

@@ -1,0 +1,15 @@
+.er-ref {
+}
+
+.er-references {
+  font-size: var(--size--1);
+
+  .er-body {
+    margin: 0;
+    font-size: inherit;
+  }
+}
+
+.er-references li:target {
+  background-color: var(--color-background-surface);
+}
