@@ -65,6 +65,7 @@
   --size-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
 
   /** Design motifs */
+  --text-max-width: 48ch;
   --rgb-strip: linear-gradient(
     to right,
     var(--brand-red),

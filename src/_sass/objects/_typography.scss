@@ -79,7 +79,7 @@
 .er-body,
 .er-body-l,
 .er-body-s {
-  max-inline-size: 48ch;
+  max-inline-size: var(--text-max-width);
   margin-block-start: 0;
   margin-block-end: var(--space-s);
   line-height: 1.5;
