@@ -1,0 +1,25 @@
+.er-figure {
+  margin: 0;
+  margin-block-end: var(--space-m);
+
+  .er-body:last-of-type {
+    margin: 0;
+  }
+}
+
+.er-figure__caption {
+  font-size: var(--size--1);
+
+  .er-body {
+    font-size: inherit;
+  }
+}
+
+@media (min-width: 30rem) {
+  .er-figure--right {
+    max-inline-size: max(13rem, 30%);
+    margin-inline-start: var(--space-m);
+    float: right;
+    clear: right;
+  }
+}

@@ -102,6 +102,128 @@ const customiseFootnoteHtml = (md) => {
 };
 
 /**
+ * Custom markdown-it handler for figures (images with visible captions).
+ *
+ * @param {import('markdown-it')} md - markdown-it instance.
+ */
+
+const figureMarkdown = function (md) {
+  const openingTag = "!!!figure";
+  const closingTag = "!!!";
+  const dividerTag = "---";
+
+  md.block.ruler.before(
+    "fence",
+    "figure",
+    (state, startLine, endLine, silent) => {
+      const pos = state.bMarks[startLine] + state.tShift[startLine];
+      const max = state.eMarks[startLine];
+
+      // Check if line starts with `openingTag`
+      if (pos + openingTag.length > max) return false;
+
+      const marker = state.src.slice(pos, pos + openingTag.length);
+      if (marker !== openingTag) return false;
+
+      // Extract modifiers from the openingTag line
+      const firstLine = state.src.slice(pos, max).trim();
+      // Remove `openingTag and get remaining text
+      const modifiers = firstLine.slice(openingTag.length).trim();
+
+      // If we're in silent mode (just checking), return true
+      if (silent) return true;
+
+      // Find the ending !!! and optional divider
+      let nextLine = startLine;
+      let autoClose = false;
+      let dividerLine = -1;
+
+      // Search for `closingTag` and `dividerTag`
+      while (nextLine < endLine) {
+        nextLine++;
+        if (nextLine >= endLine) break;
+
+        const linePos = state.bMarks[nextLine] + state.tShift[nextLine];
+        const lineMax = state.eMarks[nextLine];
+        const lineText = state.src.slice(linePos, lineMax).trim();
+
+        if (lineText === closingTag) {
+          autoClose = true;
+          break;
+        }
+
+        // Check for `dividerTag`
+        if (dividerLine === -1 && lineText === dividerTag) {
+          dividerLine = nextLine;
+        }
+      }
+
+      if (!autoClose) return false;
+
+      const oldParent = state.parentType;
+      const oldLineMax = state.lineMax;
+      state.parentType = "figure";
+
+      // Create opening token
+      let token = state.push("figure_open", "figure", 1);
+      token.block = true;
+      token.map = [startLine, nextLine + 1];
+      token.info = modifiers; // Store modifiers in token info
+
+      // Parse the content between markers
+      const contentStart = startLine + 1;
+      const contentEnd = dividerLine === -1 ? nextLine : dividerLine;
+
+      state.lineMax = contentEnd;
+      state.md.block.tokenize(state, contentStart, contentEnd);
+      state.lineMax = oldLineMax;
+
+      // If there's a divider, parse caption content
+      if (dividerLine !== -1) {
+        token = state.push("figcaption_open", "figcaption", 1);
+        token.block = true;
+
+        const captionStart = dividerLine + 1;
+        const captionEnd = nextLine;
+
+        state.lineMax = captionEnd;
+        state.md.block.tokenize(state, captionStart, captionEnd);
+        state.lineMax = oldLineMax;
+
+        token = state.push("figcaption_close", "figcaption", -1);
+        token.block = true;
+      }
+
+      // Create closing token
+      token = state.push("figure_close", "figure", -1);
+      token.block = true;
+
+      state.parentType = oldParent;
+      state.line = nextLine + 1;
+
+      return true;
+    },
+  );
+
+  // Add rendering rules
+  md.renderer.rules.figure_open = (tokens, idx) => {
+    const token = tokens[idx];
+    const tokenInfos = token.info
+      ? md.utils.escapeHtml(token.info).split(" ")
+      : [];
+
+    let classes = "er-figure";
+    tokenInfos.forEach((c) => (classes += ` er-figure--${c}`));
+
+    return `<figure class="${classes}">\n`;
+  };
+  md.renderer.rules.figure_close = () => "</figure>\n";
+  md.renderer.rules.figcaption_open = () =>
+    '<figcaption class="er-figure__caption">';
+  md.renderer.rules.figcaption_close = () => "</figcaption>\n";
+};
+
+/**
  * Small markdown-it plugin that adds classes to elements automatically.
  * Heavily derived from markdown-it-govuk.
  *
@@ -200,6 +322,7 @@ const markdownConfig = markdownIt({
   typographer: true,
   breaks: true,
 })
+  .use(figureMarkdown)
   .use(markdownItFootnote)
   .use(markdownItAnchor, {
     tabIndex: false,

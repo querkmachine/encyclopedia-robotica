@@ -1,5 +1,7 @@
 import paths from "./eleventy/paths.js";
 
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+
 import { compileStylesheets } from "./eleventy/build/sass.js";
 import { markdownConfig } from "./eleventy/build/markdown.js";
 
@@ -16,6 +18,9 @@ import {
  */
 
 export default function (eleventyConfig) {
+  // Plugins
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+  
   // Markdown configuration
   eleventyConfig.setLibrary("md", markdownConfig);
 
