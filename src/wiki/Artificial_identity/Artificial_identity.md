@@ -10,3 +10,11 @@ tags:
 Artifically identifying individuals may identify as mechanical devices such as [robots], [machines], or vehicles; digital concepts such as [artificial intelligence] or [programs]; traditionally inanimate creations such as plush toys, clothing or furniture; or beings made of manufactured materials like latex or plastics.
 
 [objectkin]: /test
+
+!!!figure
+![](<Eric_the_Robot_(17368497641).jpg>)
+
+---
+
+French magazine about the demonstration of Eric the Robot at the 1928 exhibition of the Model Engineers Society. [Public domain]
+!!!

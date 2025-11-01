@@ -3,6 +3,14 @@ title: Android
 tags: [types]
 ---
 
+!!!figure right
+![Ameca, an android developed by Engineered Arts.](Ameca_Generation_1.jpg)
+
+---
+
+Ameca, an android developed by Engineered Arts. [Willy Jackson, CC BY-SA 4.0]
+!!!
+
 **Androids**, rarely called **mechanoids**, are robots that physically resemble humans.
 
 The word android is sometimes used to mean robots with masculine characteristics, with **gynoid** used to refer to those with feminine characteristics, however, this distinction is not common outside of science fiction media.
