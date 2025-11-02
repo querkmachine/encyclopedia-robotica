@@ -7,8 +7,9 @@ export default function () {
     navigation: {
       "": {
         "/": "Main page",
-        "/about": "About ER",
-        "/contributing": "Contributing",
+        "/about/": "About ER",
+        "/contributing/": "Contributing",
+        "/all/": "All articles",
       },
       Socials: {
         "/#": "Bluesky or something",

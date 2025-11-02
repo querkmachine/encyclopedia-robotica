@@ -1,5 +1,6 @@
 ---
 title: About Encyclopedia Robotica
+eleventyExcludeFromCollections: true
 formattedTitle:
   title: About
   sub: Encyclopedia Robotica

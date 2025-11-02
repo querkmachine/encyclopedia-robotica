@@ -1,5 +1,6 @@
 ---
 title: "Encyclopedia Robotica: The Artificial Identity resource"
+eleventyExcludeFromCollections: true
 formattedTitle:
   pre: Welcome to
   title: Encyclopedia Robotica

@@ -1,20 +1,14 @@
 ---
-pagination:
-  data: collections.allTags
-  size: 1
-  alias: tag
-eleventyComputed:
-  title: Pages categorised as “{{ tag }}”
+title: All articles
 eleventyExcludeFromCollections: true
-permalink: "{{ tag | tagUrl }}"
 ---
 
-{%- set totalResults = collections[tag] | length %}
+{%- set totalResults = collections.all | length %}
 
 <p class="er-body-s">{{ totalResults }} {{ 'page' if totalResults == 1 else 'pages' }}.</p>
 
 <ul class="er-list">
-  {%- for page in collections[tag] %}
+  {%- for page in collections.all %}
     <li><a class="er-link" href="{{ page.url | url }}">{{ page.data.title }}</a></li>
   {%- endfor %}
 </ul>

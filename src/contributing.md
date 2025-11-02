@@ -1,5 +1,6 @@
 ---
 title: Contributing to Encyclopedia Robotica
+eleventyExcludeFromCollections: true
 formattedTitle:
   title: Contributing to
   sub: Encyclopedia Robotica
@@ -16,3 +17,10 @@ Once that request has been approved and merged by a trusted user, the updated co
 - Use simple language, avoiding overuse of technical terms.
 - Use American English.
 - Prefer short paragraphs over long stretches of text.
+- And most importantly of all, **contributing something is better than nothing**. Lots of people can clean up or copy edit, but you might be the only one who knows what needs to be written!
+
+## Markdown guide
+
+Articles are formatted with [Markdown](https://en.wikipedia.org/wiki/Markdown), which is a simple way of adding formatting to plain text documents.
+
+TODO.

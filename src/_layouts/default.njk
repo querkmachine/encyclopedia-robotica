@@ -22,7 +22,7 @@
     <h2 class="er-heading-xs">Categorised as</h2>
     <ul class="er-list">
       {%- for t in tags %}
-      <li><a class="er-link" href="{{ t | tagUrl }}">{{ t }}</a></li>
+      <li><a class="er-ui-link" href="{{ t | tagUrl }}">{{ t }}</a></li>
       {%- endfor %}
     </ul>
   {%- endif %}
