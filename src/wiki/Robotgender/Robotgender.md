@@ -3,6 +3,14 @@ title: Robotgender
 tags: [terms, identities]
 ---
 
+!!!figure right
+![](Robotgender_Flag.png)
+
+---
+
+The robotgender pride flag, created by Chesnutt and Three Volt. [CC BY-SA]
+!!!
+
 **Robotgender** is a gender identity where one feels their gender is heavily connected to robots and machines.
 
 Robotgender people often feel a heavy connection towards computers, robots and machines and thus, may enjoy presenting as such, either physically or cosmetically.

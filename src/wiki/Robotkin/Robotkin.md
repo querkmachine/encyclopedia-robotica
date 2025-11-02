@@ -3,6 +3,22 @@ title: Robotkin
 tags: [terms, identities]
 ---
 
+!!!figure right
+![](Robotkin_Flag_Ninee.png)
+
+---
+
+Robotkin pride flag by 0x9E01. [CC BY-SA]
+!!!
+
+!!!figure right
+![](Robotkin_Flag_ZeroDemocracy.png)
+
+---
+
+"Test card" flag by Zero Democracy. [CC BY-SA]
+!!!
+
 **Robotkin** is a kin identity under the [otherkin] umbrella where an individual identifies as a robot and believes themselves to be robotic in some fashion way, such as spiritually or psychologically. It may be considered a subcategory of [machinekin].
 
 Robotkin often feel a spiritual connection towards robots and machines. Robotkin often identify strongly with the idea of [transhumanism]—a philosophical movement advocating for the advancement of the human condition through technological developments that enhance the human lifespan, cognition, mood, and physical abilities—and [posthumanism]—another movement in which a person would exist in a state that is beyond human.

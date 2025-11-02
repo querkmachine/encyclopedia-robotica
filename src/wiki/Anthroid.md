@@ -13,6 +13,10 @@ The term is a combination of the words "anthropomorphic" and "android".
 
 ## In popular culture
 
+### In real life
+
+BellaBot, a delivery robot manufactured by PUDU Robotics, is an upright robot with a head and software design intended to resemble a domestic cat.
+
 ### In media
 
 Anthroid characters in media include Scratch, a robot rooster created by Doctor Robotnik in the _Adventures of Sonic the Hedgehog_ TV series.
