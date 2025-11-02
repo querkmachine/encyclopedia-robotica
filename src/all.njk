@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
 <p class="er-body-s">{{ totalResults }} {{ 'page' if totalResults == 1 else 'pages' }}.</p>
 
 <ul class="er-list">
-  {%- for page in collections.all %}
+  {%- for page in collections.all | sortCollectionByPageName %}
     <li><a class="er-link" href="{{ page.url | url }}">{{ page.data.title }}</a></li>
   {%- endfor %}
 </ul>

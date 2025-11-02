@@ -5,7 +5,10 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { compileStylesheets } from "./eleventy/build/sass.js";
 import { markdownConfig } from "./eleventy/build/markdown.js";
 
-import { formatPageUrl } from "./eleventy/functions/pages.js";
+import {
+  formatPageUrl,
+  sortCollectionByPageName,
+} from "./eleventy/functions/pages.js";
 import { getAllTags, formatTagUrl } from "./eleventy/functions/tags.js";
 import {
   gitEditUrl,
@@ -20,7 +23,7 @@ import {
 export default function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
-  
+
   // Markdown configuration
   eleventyConfig.setLibrary("md", markdownConfig);
 
@@ -42,6 +45,10 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("tagUrl", formatTagUrl);
   eleventyConfig.addFilter("pageUrl", formatPageUrl);
+  eleventyConfig.addFilter(
+    "sortCollectionByPageName",
+    sortCollectionByPageName,
+  );
 
   return {
     markdownTemplateEngine: "njk",

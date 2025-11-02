@@ -12,8 +12,9 @@ Welcome to **Encyclopedia Robotica**, an online resource for _robotkin_: those w
 
 ## Browse by
 
+<ul class="er-list">
 {%- for tag in collections.allTags %}
 
-- [{{ tag }}]({{ tag | tagUrl }})
-
+<li><a class="er-ui-link" href="{{ tag | tagUrl }}">{{ tag }}</a></li>
 {%- endfor %}
+</ul>
