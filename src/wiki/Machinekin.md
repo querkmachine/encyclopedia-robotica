@@ -7,10 +7,14 @@ tags: [terms]
 
 Machinekin describes many kin identities under the umbrella, which include but is not limited to:
 
-- Robotkin
-- Androidkin
-- AIkin
-- Dronekin
-- Certain kinds of fictionkin
+- [robotkin]
+- [androidkin]
+- [AIkin]
+- [dronekin]
+- certain kinds of fictionkin
 
-[artificial identities]: {{ 'artificial-identity' | pageUrl }}
+[artificial identities]: {{ 'artificial identity' | pageUrl }}
+[robotkin]: {{ 'robotkin' | pageUrl }}
+[androidkin]: {{ 'android' | pageUrl }}
+[AIkin]: {{ 'artificial intelligence' | pageUrl }}
+[dronekin]: {{ 'drone' | pageUrl }}

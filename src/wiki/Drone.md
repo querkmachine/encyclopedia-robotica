@@ -17,7 +17,9 @@ Drones usually have no individuality or personality, aside from its given serial
 
 With the start of the COVID-19 pandemic, drone culture was seemingly on the rise. One of the most well known drone communities, [Hexcorp], was given a welcome opportunity to expand and engage with people who were interested in drone culture.
 
-One of the most popular depictions of a drone is a faceless gas mask or [visor] equipped with a display to show icons or unit numbers. These are often accompanied by cat ears and other types of headwear. These depictions of drones are not a rule, however, and a drone can look like anything, but are most often depicted faceless to hide any form of emotions.
+One of the most popular depictions of a drone is a latex-clad individual wearing a gas mask or [visor], equipped with a display to show designations or expressions when needed.
+
+These depictions of drones are not a rule, however, and a drone can look like anything, but are most often depicted faceless to hide any form of emotions.
 
 [Hexcorp]: https://www.hexcorp.net/
 
@@ -46,3 +48,7 @@ Adopting a drone identity is common amongst those who enjoy submissive roles and
 Certain aesthetics associated with drones, such as the wearing of gas masks and visors, or the use of designations, is a common means of deriving euphoria for all robotkin and is not specific to drones.
 
 [sense of purpose]: {{ 'sense of purpose' | pageUrl }}
+
+## External links
+
+- [Dronification guide](https://www.hexcorp.net/drone-guide) by Hexcorp
