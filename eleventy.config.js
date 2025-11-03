@@ -31,6 +31,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection("allTags", getAllTags);
 
   // Copy assets
+  eleventyConfig.addPassthroughCopy(paths.src + "/.htaccess");
   eleventyConfig.addPassthroughCopy({
     [paths.srcAssets]: "assets",
   });
