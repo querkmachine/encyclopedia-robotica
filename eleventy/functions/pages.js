@@ -7,11 +7,9 @@ const formatPageUrl = function (fileSlug) {
 };
 
 const sortCollectionByPageName = function (collection) {
-  const r = collection.sort((a, b) =>
+  return collection.sort((a, b) =>
     a.data.title < b.data.title ? -1 : a.data.title > b.data.title ? 1 : 0,
   );
-  console.log({ r });
-  return r;
 };
 
 export { formatPageUrl, sortCollectionByPageName };
