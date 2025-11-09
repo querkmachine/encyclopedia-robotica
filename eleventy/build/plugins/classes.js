@@ -1,0 +1,172 @@
+/**
+ * Small markdown-it plugin that adds classes to elements automatically.
+ * Heavily derived from markdown-it-govuk.
+ *
+ * @param {require('markdown-it')} md - markdown-it instance
+ */
+const erClassesPlugin = function (md) {
+  // Blockquote
+  addClassesToRule(md, "blockquote_open", "er-blockquote");
+
+  // Code (block)
+  const codeFenceRenderer = getDefaultRenderer(md, "fence");
+  md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+    if (tokens[idx].tag === "code") {
+      tokens[idx].attrPush([
+        "class",
+        `er-code${tokens[idx].info ? ` er-code--${tokens[idx].info}` : ""}`,
+      ]);
+    }
+    return codeFenceRenderer(tokens, idx, options, env, self);
+  };
+
+  // Code (inline)
+  addClassesToRule(md, "code_inline", "er-inline-code");
+
+  // Code (kbd)
+  const kbdRenderer = getDefaultRenderer(md, "html_inline");
+  md.renderer.rules.html_inline = (tokens, idx, options, env, self) => {
+    if (tokens[idx].content === "<kbd>") {
+      tokens[idx].content = `<kbd class="er-kbd">`;
+    }
+    return kbdRenderer(tokens, idx, options, env, self);
+  };
+
+  // Headings
+  const headingRenderer = getDefaultRenderer(md, "heading_open");
+  md.renderer.rules.heading_open = (tokens, idx, options, env, self) => {
+    const modifiers = ["xl", "l", "m", "s", "xs"];
+    const level = tokens[idx].tag.replace(/^h(:?\d{1}?)/, "$1");
+    const headingLevel = Number(level);
+    const modifier = modifiers[headingLevel - 1] || "xs";
+    tokens[idx].attrPush(["class", `er-heading-${modifier}`]);
+    return headingRenderer(tokens, idx, options, env, self);
+  };
+
+  // Horizontal rule
+  addClassesToRule(md, "hr", "er-rule");
+
+  // Images
+  addClassesToRule(md, "image", "er-image");
+
+  // Links
+  addClassesToRule(md, "link_open", "er-link");
+
+  // Lists
+  addClassesToRule(md, "bullet_list_open", "er-list er-list--bulleted");
+  addClassesToRule(md, "ordered_list_open", "er-list er-list--numbered");
+
+  // Paragraphs
+  addClassesToRule(md, "paragraph_open", "er-body");
+
+  // Tables
+  addClassesToRule(md, "table_open", "er-table");
+  addClassesToRule(md, "thead_open", "er-table__head");
+  addClassesToRule(md, "tbody_open", "er-table__body");
+  addClassesToRule(md, "tr_open", "er-table__row");
+  addClassesToRule(md, "th_open", "er-table__header");
+  addClassesToRule(md, "td_open", "er-table__cell");
+
+  // Customise markdown-it-footnote output
+  customiseFootnoteHtml(md);
+
+  // Custom text replacements
+  const defaultTextRenderer = getDefaultRenderer(md, "text");
+  md.renderer.rules.text = (tokens, idx, options, env, self) => {
+    // Vulgar fractions
+    tokens[idx].content = tokens[idx].content
+      .replace(/(?<!\d)1\/2(?!\d)/g, "½")
+      .replace(/(?<!\d)1\/3(?!\d)/g, "⅓")
+      .replace(/(?<!\d)2\/3(?!\d)/g, "⅔")
+      .replace(/(?<!\d)1\/4(?!\d)/g, "¼")
+      .replace(/(?<!\d)3\/4(?!\d)/g, "¾");
+
+    // Math symbols
+    tokens[idx].content = tokens[idx].content
+      .replace(/(?<= )<=(?= )/g, "≤")
+      .replace(/(?<= )>=(?= )/g, "≥")
+      .replace(/~=/g, "≈")
+      .replace(/(?<=\d+)x(?=\d+)/g, "×");
+
+    return defaultTextRenderer(tokens, idx, options, env, self);
+  };
+};
+
+/**
+ * Get default renderer for given markdown-it rule.
+ * Heavily derived from markdown-it-govuk.
+ *
+ * @author Paul Robert Lloyd
+ * @param {import('markdown-it')} md - markdown-it instance.
+ * @param {string} rule - markdown-it rule to modify.
+ * @returns {function} - Renderer for the given rule.
+ */
+const getDefaultRenderer = function (md, rule) {
+  return (
+    md.renderer.rules[rule] ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    }
+  );
+};
+
+/**
+ * Helper function for simple addition of classes to markdown-it rules.
+ * Heavily derived from markdown-it-govuk.
+ *
+ * @author Paul Robert Lloyd
+ * @param {import('markdown-it')} md - markdown-it instance.
+ * @param {string} rule - markdown-it rule to modify.
+ * @param {string} classes - Class or classes to add to this rule.
+ * @returns {function} - Modified renderer for the given rule.
+ */
+
+const addClassesToRule = function (md, rule, classes) {
+  const defaultRenderer = getDefaultRenderer(md, rule);
+  md.renderer.rules[rule] = (tokens, idx, options, env, self) => {
+    const token = tokens[idx];
+
+    if (token.attrGet("class")) {
+      token.attrJoin("class", classes);
+    } else {
+      token.attrPush(["class", classes]);
+    }
+
+    return defaultRenderer(tokens, idx, options, env, self);
+  };
+};
+
+/**
+ * Customise output of markdown-it-footnote. Abstracted out for tidiness.
+ *
+ * @param {import('markdown-it')} md - markdown-it instance.
+ */
+const customiseFootnoteHtml = (md) => {
+  md.renderer.rules.footnote_ref = (tokens, idx, options, env, slf) => {
+    const id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+    const caption = slf.rules.footnote_caption(tokens, idx, options, env, slf);
+    let refid = id;
+    if (tokens[idx].meta.subId > 0) refid += `:${tokens[idx].meta.subId}`;
+    return `<sup class="er-ref"><a class="er-ui-link" href="#fn${id}" id="fnref${refid}">${caption}</a></sup>`;
+  };
+
+  md.renderer.rules.footnote_block_open = () =>
+    `<hr class="er-rule">
+    <h2 id="references" class="er-heading-xs">References</h2>
+    <ol class="er-list er-list--numbered er-references">`;
+
+  md.renderer.rules.footnote_open = (tokens, idx, options, env, slf) => {
+    let id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+    if (tokens[idx].meta.subId > 0) id += `:${tokens[idx].meta.subId}`;
+    return `<li id="fn${id}">`;
+  };
+
+  md.renderer.rules.footnote_anchor = (tokens, idx, options, env, slf) => {
+    let id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+    if (tokens[idx].meta.subId > 0) id += `:${tokens[idx].meta.subId}`;
+    /* ↩ with escape code to prevent display as Apple Emoji on iOS */
+    return ` <a class="er-ui-link" href="#fnref${id}">\u21a9\uFE0E</a>`;
+  };
+};
+
+export { erClassesPlugin };
