@@ -1,0 +1,21 @@
+.er-table {
+  margin-block-end: var(--space-m);
+  font-size: var(--size--1);
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.er-table__header,
+.er-table__cell {
+  padding-block: var(--space-2xs);
+  padding-inline-end: var(--space-s);
+  border-block-end: 1px solid var(--color-border);
+
+  &:last-child {
+    padding-inline-end: 0;
+  }
+}
+
+.er-table__head :is(.er-table__header, .er-table__cell) {
+  border-block-end-width: 3px;
+}
