@@ -7,8 +7,6 @@ tags: [terms, types]
 
 [robots]: {{ 'robot' | pageUrl }}
 
-## History
-
 ## In popular culture
 
 ### In real life
@@ -33,3 +31,5 @@ Examples of zoomorphic robots in media include 808 (a robot cat) in the video ga
 Killer robot dogs inspired by those manufactured by Boston Dynamics are the primary antagonists of the _Black Mirror_ episode "Metalhead".
 
 ## In the robotkin community
+
+Although uncommon, robotkin individuals may choose to express themselves as zoomorphic robots.

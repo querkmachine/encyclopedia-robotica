@@ -10,6 +10,6 @@ Designations typically consist of a mixture of English language letters and numb
 Designations are usually meaningful to the individual it represents, incorporating personally significant digits and symbology.
 
 [drones]: {{ 'drone' | pageUrl }}
-[doll]: {{ 'doll' | pageUrl }}
+[dolls]: {{ 'doll' | pageUrl }}
 [hexadecimal]: https://en.wikipedia.org/wiki/Hexadecimal
 [hash function]: https://en.wikipedia.org/wiki/Hash_function

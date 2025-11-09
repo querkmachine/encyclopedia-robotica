@@ -8,7 +8,9 @@ formattedTitle:
 redirect_from: ["/wiki/Main_page"]
 ---
 
-Welcome to **Encyclopedia Robotica**, an online resource for _robotkin_: those who identify as artificial, digital beings such as machines, cyborgs, artificial intelligences, and computer programs.
+Welcome to **Encyclopedia Robotica**, an online resource for [robotkin]: those who identify as artificial, digital beings such as machines, cyborgs, artificial intelligences, and computer programs.
+
+[robotkin]: {{ 'robotkin' | pageUrl }}
 
 ## Browse by
 
