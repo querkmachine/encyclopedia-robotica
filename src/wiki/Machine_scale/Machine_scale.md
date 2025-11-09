@@ -5,12 +5,16 @@ tags: [concepts]
 
 The **Machine Scale** is a method of describing a individual's machine type by judging how much artificial and organic material make up their body and how human or non-human they look.
 
-For physical machines, these can be separated into 3 distinct categories: cyborg, android and robot. The scale was first conceptualized by Twitter user "RobotkinGoddess" to give [machine-identified individuals] an easier way to figure out what type of machine they are.
+For physical machines, these can be separated into 3 distinct categories: cyborg, android and robot. The scale was first conceptualized by Twitter user "RobotkinGoddess" (also known as C0NN1E) to give [machine-identified individuals] an easier way to figure out what type of machine they are.
 
 [machine-identified individuals]: {{ 'robotkin' | pageUrl }}
 
 !!!figure
 ![](The_Machine_Scale.png)
+
+---
+
+[CC BY-SA 4.0]
 !!!
 
 ## Categories

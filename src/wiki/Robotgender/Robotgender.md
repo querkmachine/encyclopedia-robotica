@@ -8,7 +8,7 @@ tags: [terms, identities]
 
 ---
 
-The robotgender pride flag, created by Chesnutt and Three Volt. [CC BY-SA]
+The robotgender pride flag, created by Chesnutt and Three Volt. [CC BY-SA 4.0]
 !!!
 
 **Robotgender** is a gender identity where one feels their gender is heavily connected to robots and machines.

@@ -39,8 +39,8 @@ Some individuals may not use pronouns at all, and instead want to consistently b
 
 It is common for [drones] and [dolls] to the phase "this one" when self referring, in order to emphasise a lack of individuality or personhood.
 
-[drone]: {{ 'drone' | pageUrl }}
-[doll]: {{ 'dolls' | pageUrl }}
+[drones]: {{ 'drone' | pageUrl }}
+[dolls]: {{ 'dolls' | pageUrl }}
 
 ### Examples
 

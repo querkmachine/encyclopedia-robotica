@@ -9,7 +9,7 @@ These quirks can range from simple formatting changes to wholesale replacement o
 
 Typing quirks should not be confused with using [robot-friendly language].
 
-[robot-friendly language]({{ 'robot-friendly language' | pageUrl }})
+[robot-friendly language]: {{ 'robot-friendly language' | pageUrl }}
 
 ## Examples of robotkin typing quirks
 
@@ -35,6 +35,7 @@ Typing quirks that change letters or words will also affect the ability for acce
 
 It is considered courteous for users of typing quirks to provide a plain language version of their text if requested.
 
-## External links
+## Examples
 
 - [Hexcorp drone status codes](https://www.hexcorp.net/drone-status-codes-v2)
+- [QuARC API manual](https://quarc.neocities.org/manual/)

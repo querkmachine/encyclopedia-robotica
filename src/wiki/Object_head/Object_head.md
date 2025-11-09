@@ -3,6 +3,14 @@ title: Object head
 tags: [types]
 ---
 
+!!!figure right
+![](TV_Head_1.png)
+
+---
+
+Example of a TV head character. [CITYSTREETFUNK, CC BY-SA 4.0]
+!!!
+
 **Object heads** are a humanoid robot-type where the typical head is replaced with an object, most commonly televisions or monitors.
 
 ## History

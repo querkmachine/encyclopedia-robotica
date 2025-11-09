@@ -13,5 +13,5 @@ Advanced visors may incorporate electronic displays to display graphics on the f
 
 ## External links
 
-- [Building a Robot Visor: How and Why](https://media.ccc.de/v/why2025-178-building-a-robot-visor-how-and-why) talk at WHY2025
 - [How Δ-44203 built a visor and why](https://query.44203.online/topic/visor/)
+- [Building a Robot Visor: How and Why](https://media.ccc.de/v/why2025-178-building-a-robot-visor-how-and-why) talk by Δ-44203 at WHY2025

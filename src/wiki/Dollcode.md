@@ -11,6 +11,9 @@ A doll's numerical designation may be converted into a dollcode for visual repre
 
 For example, the designation '12345' may be converted using base 10 to create the dollcode ▖▘▖▘▖▌▌▖▌.
 
+[designation]: {{ 'designation' | pageUrl }}
+[dolls]: {{ 'doll' | pageUrl }}
+
 ## External links
 
 - [Dollcode generator](https://noe.sh/dollcode/)

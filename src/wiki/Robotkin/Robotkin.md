@@ -8,7 +8,7 @@ tags: [terms, identities]
 
 ---
 
-Robotkin pride flag by 0x9E01. [CC BY-SA]
+Robotkin pride flag by 0x9E01. [CC BY-SA 4.0]
 !!!
 
 !!!figure right
@@ -16,7 +16,7 @@ Robotkin pride flag by 0x9E01. [CC BY-SA]
 
 ---
 
-"Test card" flag by Zero Democracy. [CC BY-SA]
+"Test card" flag by Zero Democracy. [CC BY-SA 4.0]
 !!!
 
 **Robotkin** is a kin identity under the [otherkin] umbrella where an individual identifies as a robot and believes themselves to be robotic in some fashion way, such as spiritually or psychologically. It may be considered a subcategory of [machinekin].

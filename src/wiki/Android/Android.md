@@ -19,7 +19,7 @@ Whilst rarely used, the term **androgynoid** may refer to robots with both mascu
 
 ## History
 
-The earliest use of the word android appears to have originated in 1728 encyclopedia _[Cyclopædia]_ by [Ephraim Chambers] (then called "androides"), which was in reference to a human-looking automaton supposedly created by [St. Albertus Magnus][^1].
+The earliest use of the word android appears to have originated in 1728 encyclopedia _[Cyclopædia]_ by [Ephraim Chambers] (then called "androides"), which was in reference to a human-looking automaton supposedly created by [St. Albertus Magnus][][^1].
 
 By the late 1700s, androids started to appear in exhibits for display purposes and by 1863, the word android would appear in US patents referring to human-looking automaton toys.[^2] The word gynoid originated from a 1979 editorial written by [Isaac Asimov][][^3].
 
@@ -69,7 +69,7 @@ Animated androids include Jenny Wakeman in _My Life as a Teenage Robot_, Robot i
 
 Androids appearing in literature include Andrew Martin in Isaac Asimov's _The Bicentennial Man_, Marvin the Paranoid Android in _The Hitchhiker's Guide to the Galaxy_, and Murderbot/SecUnit in _The Murderbot Diaries_ series of novels.
 
-Some androids, such as Murderbot and the T-800 of the _Terminator_ franchise, include organic components as enhancements to their bodies, however they do not require these components to work, so may still be considered true androids.
+Some androids, such as the T-800 of the _Terminator_ franchise, include organic components as enhancements to their bodies, however they do not require these components to work, so may still be considered true androids.
 
 A common trope of androids in media involves them desiring to become more human, such as Data and Andrew. These characters may temporarily or pemanently become [cyborgs] in the pursuit of becoming more human-like.
 
