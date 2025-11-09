@@ -26,6 +26,8 @@ Object heads wouldn't start being depicted as robots until fairly recently. A re
 
 ### In real life
 
+Object heads are a recurring trope in the electronic music scene, including the French group Daft Punk, who wear helmets with embedded screens, and Marshmello, a marshmellow with a face.
+
 Custom costumes and cosplays involving screen head characters are common, thanks to the low cost and relative ease of converting old CRT televisions and monitors into wearable accessories.
 
 ### In media

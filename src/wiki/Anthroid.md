@@ -17,6 +17,8 @@ The term is a combination of the words "anthropomorphic" and "android".
 
 BellaBot, a delivery robot manufactured by PUDU Robotics, is an upright robot with a head and software design intended to resemble a domestic cat.
 
+The musician Avian Invasion wears a helmet resembling a robotic bird.
+
 ### In media
 
 Anthroid characters in media include Scratch, a robot rooster created by Doctor Robotnik in the _Adventures of Sonic the Hedgehog_ TV series.
