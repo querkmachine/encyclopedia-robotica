@@ -1,0 +1,55 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "eleventy.config.js"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/install-dependencies
+      - name: Build site
+        run: npm run build
+      - name: Save artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: encyclopedia-robotica
+          path: _site
+          retention-days: 1
+          include-hidden-files: true
+  deploy:
+    name: Deploy to server
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: encyclopedia-robotica
+      - name: Upload files
+        uses: up9cloud/action-rsync@v1.4
+        env:
+          HOST: ${{ secrets.SSH_HOST }}
+          USER: ${{ secrets.SSH_USER }}
+          KEY: ${{ secrets.SSH_KEY }}
+          TARGET: ${{ secrets.SSH_PATH }}
+          ARGS: -avzP --delete-after --human-readable
