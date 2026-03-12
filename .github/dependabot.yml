@@ -1,0 +1,42 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: "cron"
+      cronjob: "0 4 * */1 6"
+    allow:
+      - dependency-type: direct
+      - dependency-name: caniuse-lite
+    groups:
+      eleventy:
+        patterns:
+          - "@11ty/*"
+      css:
+        patterns:
+          - "cssnano"
+          - "postcss"
+          - "postcss-*"
+          - "sass"
+      markdown:
+        patterns:
+          - "markdown-*"
+      utils:
+        patterns:
+          - "date-fns"
+          - "glob"
+          - "rimraf"
+          - "slugify"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: "cron"
+      cronjob: "0 4 * */1 6"
+
+  - package-ecosystem: github-actions
+    directory: /.github/workflows/actions/install-dependencies
+    schedule:
+      interval: "cron"
+      cronjob: "0 4 * */1 6"
