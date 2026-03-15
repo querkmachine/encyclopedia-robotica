@@ -8,7 +8,7 @@ formattedTitle:
 
 The Encyclopedia Robotica (ER) wiki was originally created by AnalogBreakdown (also known as C0NN1E) in December 2021 with the aim of documenting and providing resources and information for those who identify as or with robots or machines.
 
-AnalogBreakdown ceased involvement with the wiki in 2024, leading to the original wiki being closed down by the hosting company. It's currently in the process of being rebuilt under the stewardship of beeps (B47-R0).
+AnalogBreakdown ceased involvement with the wiki in 2024, leading to the original wiki being closed down by the hosting company. It's currently in the process of being rebuilt under the stewardship of [beeps](//beeps.website).
 
 ## What ER is
 

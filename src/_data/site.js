@@ -11,9 +11,6 @@ export default function () {
         "/contributing/": "Contributing",
         "/all/": "All articles",
       },
-      Socials: {
-        "/#": "Bluesky or something",
-      },
     },
   };
 }
